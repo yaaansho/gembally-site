@@ -163,15 +163,26 @@ h1, h2, h3, .pullquote { word-break: auto-phrase; }
 .moments figcaption { font-size: .95rem; }
 .moments figcaption strong { display: block; }
 @media (max-width: 860px) { .moments { grid-template-columns: minmax(0, 1fr); } }
-.chapters { display: grid; gap: 3.5rem; }
-.chapter { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 2.5rem; align-items: start; padding-top: 2rem; border-top: 1px solid var(--line); }
-.chapter .where { font-family: var(--font-latin); font-weight: 800; font-size: var(--step-2); line-height: 1.2; }
-.chapter .where small { display: block; font-family: var(--font-jp); font-weight: 500; font-size: .8rem; color: var(--muted); margin-top: .4rem; letter-spacing: .06em; }
-.chapter .where .years { display: block; font-family: var(--font-latin); font-weight: 700; font-size: .85rem; color: var(--ink); margin-top: .3rem; letter-spacing: .04em; }
+.chapters { display: grid; gap: 3.2rem; position: relative; padding-left: 2.6rem; }
+.chapters::before { content: ""; position: absolute; left: .45rem; top: .6rem; bottom: .6rem; width: 2px; background: linear-gradient(var(--fv-pale), var(--action)); }
+.chapter { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2.5rem; align-items: start; position: relative; }
+.chapter::before { content: ""; position: absolute; left: -2.6rem; top: .45rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--sheet); border: 3px solid var(--action); }
+.chapter:last-child::before { background: var(--action); box-shadow: 0 0 0 6px color-mix(in srgb, var(--action) 18%, transparent); }
+.chapter .where { display: grid; line-height: 1.2; }
+.chapter .where .years { font-family: var(--font-latin); font-weight: 700; font-size: var(--step--1); color: var(--action); letter-spacing: .08em; }
+.chapter .where b { font-family: var(--font-latin); font-weight: 800; font-size: var(--step-3); margin-top: .5rem; letter-spacing: 0; }
+.chapter .where small { word-break: auto-phrase; font-weight: 500; font-size: .82rem; color: var(--muted); margin-top: .6rem; letter-spacing: .06em; line-height: 1.6; }
+.chapter > div:last-child { background: var(--sheet); border-radius: 14px; padding: 1.6rem 1.8rem; box-shadow: 0 1px 0 var(--line), 0 10px 30px -18px rgba(24, 33, 61, .25); }
 .chapter h3 { font-size: var(--step-1); margin-bottom: .8rem; }
 .chapter p { color: var(--muted); }
 .chapter p + p { margin-top: .8rem; }
 @media (max-width: 960px) { .chapter { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+@media (max-width: 600px) {
+  .chapters { padding-left: 1.9rem; gap: 2.6rem; }
+  .chapters::before { left: .4rem; }
+  .chapter::before { left: -1.9rem; width: .9rem; height: .9rem; }
+  .chapter > div:last-child { padding: 1.2rem 1.2rem; }
+}
 .pullquote {
   margin: 1rem 0; padding: 1.6rem 0 1.6rem 1.6rem; border-left: 6px solid var(--marker);
   font-size: var(--step-2); font-weight: 900; line-height: 1.55; color: var(--ink);
