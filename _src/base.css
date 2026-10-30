@@ -97,9 +97,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Hero */
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr); padding-block: 3.5rem 5rem; }
 .hero h1 { font-size: var(--step-4); line-height: 1.3; }
-.hero .concept { font-size: var(--step-1); font-weight: 700; margin-top: 1.4rem; }
-.hero .lead { color: var(--muted); margin-top: 1rem; max-width: 34em; }
-.hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.hero .concept { font-size: var(--step-1); font-weight: 700; margin-top: 1rem; }
+.hero .lead { color: var(--muted); margin-top: .7rem; max-width: none; word-break: auto-phrase; }
+.hero .lead.prose { gap: .1rem; line-height: 1.8; }
+@media (max-width: 600px) { .hero .lead { font-size: .95rem; } }
+.hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 3rem; padding-block: 1.75rem 3.5rem; }
   }
@@ -111,7 +113,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     linear-gradient(90deg, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px);
   background-size: 34px 34px; background-position: center top;
 }
-.hero .wrap > div { max-width: 38rem; }
+.hero .wrap > div { max-width: 40rem; }
 .hero-art {
   position: absolute; z-index: -1; top: 50%; translate: 0 -50%;
   right: max(0rem, calc((100vw - var(--wrap)) / 2 - 2rem)); width: min(44vw, 34rem); height: auto;
