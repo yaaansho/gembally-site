@@ -411,10 +411,34 @@ h1, h2, h3, .pullquote { word-break: auto-phrase; }
 .ticks { display: grid; gap: .45rem; }
 .ticks li { padding-left: 1.6rem; position: relative; }
 .ticks li::before { content: "✓"; position: absolute; left: 0; color: var(--action); font-weight: 900; }
-.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; counter-reset: f; }
-.flow li { counter-increment: f; background: var(--sheet); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; font-weight: 700; font-size: .95rem; line-height: 1.6; }
-.flow li::before { content: counter(f); display: block; font-family: var(--font-latin); font-weight: 800; color: var(--action); font-size: 1.3rem; margin-bottom: .3rem; }
-.flow li span { display: block; font-weight: 400; color: var(--muted); font-size: var(--step--1); margin-top: .3rem; }
+/* Flow: one diagram, four chevrons that deepen in color as the work moves forward */
+.flow {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); counter-reset: f;
+  background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 1.2rem; column-gap: .25rem;
+}
+.flow li { counter-increment: f; display: grid; grid-template-rows: auto 1fr; gap: .7rem; }
+.flow b {
+  display: grid; align-content: center; min-height: 4.4rem; padding: .6rem 1.2rem .6rem 1.5rem; word-break: auto-phrase;
+  font-size: .85rem; line-height: 1.45; color: var(--ink); background: #dbe4fb;
+  clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 50%, calc(100% - 1rem) 100%, 0 100%, 1rem 50%);
+}
+.flow li:first-child b { padding-left: .9rem; clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 50%, calc(100% - 1rem) 100%, 0 100%); border-radius: 6px 0 0 6px; }
+.flow b::before { content: "STEP " counter(f); font-family: var(--font-latin); font-size: .68rem; font-weight: 800; letter-spacing: .12em; color: var(--action); }
+.flow li:nth-child(2) b { background: #b3c7f7; }
+.flow li:nth-child(3) b { background: #5d84e4; color: #fff; }
+.flow li:nth-child(4) b { background: var(--action); color: #fff; }
+.flow li:nth-child(n+3) b::before { color: rgba(255, 255, 255, .8); }
+.flow li span { display: block; color: var(--muted); font-size: var(--step--1); line-height: 1.6; padding-inline: .9rem .6rem; word-break: auto-phrase; }
+@media (max-width: 860px) {
+  .flow { grid-template-columns: minmax(0, 1fr); row-gap: .25rem; padding: 1rem; }
+  .flow li { grid-template-columns: 11rem minmax(0, 1fr); grid-template-rows: none; align-items: center; gap: .9rem; }
+  .flow b, .flow li:first-child b {
+    min-height: 4.2rem; padding: .5rem .9rem 1.1rem; border-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - .7rem), 50% 100%, 0 calc(100% - .7rem));
+  }
+  .flow li:first-child b { border-radius: 6px 6px 0 0; }
+  .flow li span { padding: 0; }
+}
 .roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .role { border-radius: 10px; padding: 1.4rem; border: 1px solid var(--line); background: var(--sheet); }
 .role.us { border: 2px solid var(--ink); }
@@ -433,7 +457,6 @@ h1, h2, h3, .pullquote { word-break: auto-phrase; }
 .areas li { border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: .4rem 1.1rem; font-weight: 500; }
 @media (max-width: 860px) {
   .service { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
-  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .roles { grid-template-columns: minmax(0, 1fr); }
 }
 
