@@ -268,3 +268,14 @@ h1, h2, h3, .pullquote { word-break: auto-phrase; }
 /* Portrait photo */
 .portrait-photo { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; border-radius: 10px; }
 @media (max-width: 860px) { .portrait-photo { max-width: 22rem; } }
+
+/* Header on navy, so it reads apart from the white page */
+body::before { background: var(--navy); }
+.site-header { background: var(--navy); border-bottom: 0; backdrop-filter: none; }
+.site-header .wordmark .logo-color { display: none; }
+.site-header .wordmark .logo-white { display: block; }
+.site-header .nav a { color: rgba(255, 255, 255, .86); }
+.site-header .nav a:hover, .site-header .nav a[aria-current="page"] { color: #fff; }
+.site-header .btn.small { background: #fff; color: var(--navy); border-color: #fff; }
+.site-header .menu summary { color: #fff; border-color: rgba(255, 255, 255, .7); }
+.site-header .menu[open] summary { background: #fff; color: var(--navy); }
