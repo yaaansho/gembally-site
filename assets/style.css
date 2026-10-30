@@ -608,3 +608,4 @@ body::before { background: var(--navy); }
 .site-header .btn.small { background: #fff; color: var(--navy); border-color: #fff; }
 .site-header .menu summary { color: #fff; border-color: rgba(255, 255, 255, .7); }
 .site-header .menu[open] summary { background: #fff; color: var(--navy); }
+@media (min-width: 861px) { .split > .section-head { position: sticky; top: 6rem; } }
