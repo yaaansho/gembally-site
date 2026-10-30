@@ -236,6 +236,8 @@ section { border-top: 1px solid var(--line); }
 .price small { font-family: var(--font-jp); font-size: .8rem; font-weight: 700; margin-left: .15rem; }
 .price .per { display: block; font-family: var(--font-jp); font-size: .78rem; font-weight: 500; color: var(--muted); }
 .price-row.free .price { color: var(--action); }
+.price-col { display: grid; justify-items: end; gap: .9rem; align-content: start; }
+.price-col .btn { white-space: nowrap; }
 .plans { display: grid; gap: 1.4rem; }
 .plan-name { font-weight: 700; color: var(--ink); }
 .price-row .plans ul { margin-top: .4rem; }
@@ -243,6 +245,7 @@ section { border-top: 1px solid var(--line); }
 @media (max-width: 760px) {
   .price-row { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
   .price { text-align: left; }
+  .price-col { justify-items: start; }
 }
 
 /* Process */
