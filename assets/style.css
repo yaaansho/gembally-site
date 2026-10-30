@@ -141,17 +141,34 @@ section { border-top: 1px solid var(--line); }
 .section-head h2 { font-size: var(--step-3); }
 .section-head p { color: var(--muted); }
 
-/* Pains */
-.pains, .pains-after { max-width: 48rem; }
-.pains { counter-reset: pain; border-top: 2px solid var(--ink); }
-.pains li {
-  counter-increment: pain; display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); align-items: baseline;
-  padding: 1.25rem 0; border-bottom: 1px solid var(--line); font-size: var(--step-1); font-weight: 700; line-height: 1.6;
+.eyebrow { font-family: var(--font-latin); font-weight: 700; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--action); display: flex; align-items: center; gap: .6rem; }
+.eyebrow::before { content: ""; width: 1.6rem; height: 2px; background: currentColor; }
+
+/* Pains: a dark band, so the "problem" reads apart from the services below */
+.pains-band { position: relative; background: var(--navy); color: #fff; border-top: 0; }
+.pains-band::after {
+  content: ""; position: absolute; left: 50%; bottom: -1.6rem; translate: -50% 0; width: 3.4rem; height: 1.6rem;
+  background: var(--navy); clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
-.pains li::before { content: counter(pain, decimal-leading-zero); font-family: var(--font-latin); font-weight: 800; font-size: var(--step-0); color: var(--action); }
-.pains-after { margin-top: 1.8rem; font-weight: 700; color: var(--muted); }
-.pains-after .hl { color: var(--ink); }
-@media (max-width: 860px) { .pains li { font-size: 1.08rem; grid-template-columns: 2.6rem minmax(0, 1fr); } }
+.pains-band + section { border-top: 0; }
+.pains-band .wrap { padding-block: 4.5rem 4.8rem; }
+.pains-band .eyebrow { color: #9bb6ff; }
+.pains { counter-reset: pain; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.pains li {
+  counter-increment: pain; display: grid; gap: .7rem; align-content: start;
+  padding: 1.5rem 1.4rem; border-radius: 12px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14);
+  font-size: var(--step-0); font-weight: 700; line-height: 1.7; word-break: auto-phrase;
+}
+.pains li::before { content: counter(pain, decimal-leading-zero); font-family: var(--font-latin); font-weight: 800; font-size: var(--step-2); line-height: 1; color: #9bb6ff; }
+.pains-after { word-break: auto-phrase; margin-top: 2.2rem; font-weight: 700; font-size: var(--step-1); text-align: center; color: rgba(255, 255, 255, .85); }
+.pains-after .hl { color: #fff; background-image: linear-gradient(transparent 62%, color-mix(in srgb, var(--marker) 70%, transparent) 62%); }
+@media (max-width: 860px) {
+  .pains { grid-template-columns: minmax(0, 1fr); gap: .7rem; }
+  .pains li { grid-template-columns: 2.4rem minmax(0, 1fr); align-items: baseline; padding: 1.1rem 1.2rem; }
+  .pains li::before { font-size: var(--step-0); }
+  .pains-band .wrap { padding-block: 3rem 3.4rem; }
+  .pains-after { font-size: var(--step-0); text-align: left; }
+}
 
 /* Philosophy */
 .philosophy { background: var(--tint); }
