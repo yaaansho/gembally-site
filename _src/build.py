@@ -87,9 +87,13 @@ def footer():
         <a href="index.html">トップ</a>
         {menu}
       </nav>
+      <nav class="col" aria-label="お問い合わせ">
+        <b>お問い合わせ</b>
+        <a href="contact.html">無料初回相談を申し込む</a>
+        <a href="mailto:contact@gembally.com">contact@gembally.com</a>
+      </nav>
       <nav class="col" aria-label="その他">
         <b>その他</b>
-        <a href="contact.html">お問い合わせ</a>
         {NOTE_LINK}
         <a href="privacy.html">プライバシーポリシー</a>
       </nav>
