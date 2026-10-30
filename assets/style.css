@@ -490,6 +490,9 @@ h1, h2, h3, .pullquote { word-break: auto-phrase; }
 .moments figcaption { font-size: .95rem; }
 .moments figcaption strong { display: block; }
 @media (max-width: 860px) { .moments { grid-template-columns: minmax(0, 1fr); } }
+.career-head { gap: .2rem; }
+.career-head h2 { margin-bottom: .6rem; }
+.career-head p { font-size: .92rem; line-height: 1.7; }
 .chapters { display: grid; gap: 3.2rem; position: relative; padding-left: 2.6rem; }
 .chapters::before { content: ""; position: absolute; left: .45rem; top: .6rem; bottom: .6rem; width: 2px; background: linear-gradient(var(--fv-pale), var(--action)); }
 .chapter { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2.5rem; align-items: start; position: relative; }
